@@ -6,8 +6,10 @@ import os
 import re
 import logging
 import pandas as pd
+import nltk
 from nltk.stem import WordNetLemmatizer
 
+nltk.download('wordnet')
 LOGGER = logging.getLogger("tagging_text_training")
 
 

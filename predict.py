@@ -61,6 +61,13 @@ class TextClassificationWrapper(mlflow.pyfunc.PythonModel):
             LOGGER.info("Loading model input...")
             # Load the text from the model input
             input_text = model_input["text"].tolist()
+            LOGGER.debug("len(input_text): %d", len(input_text))
+
+            if len(input_text) == 0:
+                return {
+                    "STATUS": "FAILED",
+                    "MESSAGE": "Please provide at least one example in the input.",
+                }
 
             LOGGER.info("Processing input text...")
             preprocessed_texts = []

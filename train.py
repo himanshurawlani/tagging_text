@@ -9,7 +9,8 @@ import mlflow
 
 from preprocess import preprocess_dataset
 from model import label_vectorizer, tfidf_vectorizer, count_vectorizer, train_classifier
-from predict import TextClassificationWrapper
+
+import predict
 import logger
 
 LOGGER = logger.create_logger("tagging_text_training", "./logs")
@@ -64,12 +65,12 @@ def create_mlflow_model():
     conda_file = "./conda.yaml"
 
     # Path to python scripts to be included in the servable
-    code_path = ["./preprocess.py", "./logger.py"]
+    code_path = ["./preprocess.py", "./logger.py", "./predict.py"]
 
     # Create custom mlflow python model
     mlflow.pyfunc.save_model(
         path=model_path,
-        python_model=TextClassificationWrapper(),
+        python_model=predict.TextClassificationWrapper(),
         artifacts=artifacts,
         conda_env=conda_file,
         code_path=code_path,

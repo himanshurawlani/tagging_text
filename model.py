@@ -171,7 +171,7 @@ def train_classifier(X, y, classes):
 
         # Split the data into train and test sets
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.3, random_state=2, shuffle=True
+            X, y, test_size=0.3, random_state=9, shuffle=True
         )
 
         # Train the classifier

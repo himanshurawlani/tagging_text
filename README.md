@@ -81,3 +81,11 @@ $ mlflow models serve -m servable -p 2343 --no-conda
 ### Inference
 
 The Jupyter notebook contains the code to send a request, containing the text payload, to our inference API. You will also be able to see the logs of the inference in `logs/app.log` file.
+
+You can also run inference from command line by creating a CSV file. This CSV file should contain `text` column with input text in subsequent rows. Use the following command to run inference from CLI
+
+```
+$ mlflow models predict -m servable -i data/test.csv -t csv --no-conda
+```
+
+The output would be printed to stdout. If you want to redirect the output to a JSON file you can append `-o output.json` flag to the above command.
