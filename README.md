@@ -45,7 +45,7 @@ The `train.py` script contains functions for running training pipeline. This scr
 $ python train.py
 ```
 
-Once the training is completed you'll be presented with the metrics. These are the metrics that I got (NOTE: The training metrics would differ on different machines.):
+Once the training is completed you'll be presented with the metrics. These are the metrics that I got (NOTE: The training metrics would differ with different train test splits.):
 
 ```
 Accuracy:  0.9444444444444444
